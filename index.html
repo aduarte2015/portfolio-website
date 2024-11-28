@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aline Cunico Portfolio</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Gradient Text */
+    .gradient-text {
+      background: linear-gradient(90deg, #0078e7, #00c6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
+    /* Header */
+    header {
+      background-color: #fff;
+      padding: 3rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    header .cta {
+      padding: 0.75rem 1.5rem;
+      background-color: #0078e7;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    header .cta:hover {
+      background-color: #005bb5;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      background-color: #f9f9f9;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .skills-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .skill {
+      background-color: #e7f3ff;
+      color: #0078e7;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 20px;
+      border: 1px solid #cce5ff;
+      display: inline-block;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      padding: 3rem 1rem;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .projects-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.2s ease;
+      text-align: left;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      margin-bottom: 1rem;
+    }
+
+    .project-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .project-skill {
+      background-color: #e7f3ff;
+      color: #0078e7;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.85rem;
+      border-radius: 15px;
+      border: 1px solid #cce5ff;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111;
+      color: #eee;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    footer a {
+      color: #0078e7;
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+        <h1><span class="gradient-text">Aline Cunico</span></h1>
+        <p>Blending <span class="gradient-text">Creativity</span> and <span class="gradient-text">AI</span> to Craft Innovative Solutions</p>
+        <a href="#projects" class="cta">Explore My Work</a>
+      </header>
+      
+
+  <!-- Skills Section -->
+  <section class="skills-section">
+    <h2>Key <span class="gradient-text">Skills</span></h2>
+    <div class="skills-grid">
+      <span class="skill">Machine Learning</span>
+      <span class="skill">Deep Learning</span>
+      <span class="skill">Data Visualization</span>
+      <span class="skill">Natural Language Processing</span>
+      <span class="skill">Python</span>
+      <span class="skill">TensorFlow</span>
+      <span class="skill">Computer Vision</span>
+      <span class="skill">Blender</span>
+      <span class="skill">Streamlit</span>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <h2>Featured <span class="gradient-text">Projects</span></h2>
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <img src="https://plus.unsplash.com/premium_photo-1670183859029-99a0a2c1912b?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Chess AI Project">
+        <h3><span class="gradient-text">Chess AI</span></h3>
+        <p>Interactive chess engine with real-time move analysis.</p>
+        <div class="project-skills">
+          <span class="project-skill">Python</span>
+          <span class="project-skill">Streamlit</span>
+          <span class="project-skill">AI</span>
+        </div>
+      </div>
+      <!-- Project 2 -->
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="AI Slideshow Creator">
+        <h3><span class="gradient-text">AI Slideshow Creator</span></h3>
+        <p>Automated video generation using After Effects and AI.</p>
+        <div class="project-skills">
+          <span class="project-skill">After Effects</span>
+          <span class="project-skill">Automation</span>
+          <span class="project-skill">Video Editing</span>
+        </div>
+      </div>
+      <!-- Project 3 -->
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1732613942657-61684c51eb55?q=80&w=1668&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Creative AI">
+        <h3><span class="gradient-text">Creative AI</span></h3>
+        <p>Blender + TensorFlow-generated character animations.</p>
+        <div class="project-skills">
+          <span class="project-skill">Blender</span>
+          <span class="project-skill">TensorFlow</span>
+          <span class="project-skill">3D Animation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Aline Cunico | <a href="mailto:Alinedcunico@gmail.com">Email Me</a></p>
+    <p><a href="https://github.com/aduarte2015">GitHub</a> | <a href="https://www.linkedin.com/">LinkedIn</a></p>
+  </footer>
+
+</body>
+</html>

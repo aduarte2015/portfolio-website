@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess AI Project</title>
+  <style>
+    /* General styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    /* Navbar styles */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      color: #333;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, #0078e7, #00c6ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* Nav Links */
+    nav .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    nav .nav-links li {
+      margin: 0 1.5rem;
+    }
+
+    nav .nav-links a {
+      color: black;  /* Default black text */
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    /* Non-mobile hover effect */
+    @media (min-width: 768px) {
+      nav .nav-links a:hover {
+        color: white;
+        background: linear-gradient(90deg, #0078e7, #00c6ff);  /* Gradient background */
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    /* Mobile hamburger menu */
+    nav .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: black;
+      border-radius: 5px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(90deg, #0078e7, #00c6ff);
+      color: white;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+    }
+
+    header .cta {
+      padding: 0.75rem 1.5rem;
+      background: white;
+      color: #0078e7;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    header .cta:hover {
+      background: #f0f0f0;
+      transform: scale(1.05);
+    }
+
+    /* Content */
+    .content {
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .project-overview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .project-overview img {
+      flex: 1;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-details {
+      flex: 2;
+      min-width: 300px;
+    }
+
+    .features, .technologies {
+      margin-bottom: 2rem;
+    }
+
+    .features ul, .technologies ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .features ul li, .technologies ul li {
+      margin-bottom: 0.5rem;
+      background: #e8f3ff;
+      color: #0078e7;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .cta-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .cta-container .cta {
+      background: linear-gradient(90deg, #0078e7, #00c6ff);
+      color: white;
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .cta-container .cta:hover {
+      background: #00c6ff;
+      transform: scale(1.05);
+    }
+
+    /* Mobile styling */
+    @media (max-width: 768px) {
+      nav .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 1rem;
+      }
+
+      nav .nav-links.active {
+        display: flex;
+      }
+
+      nav .nav-links li {
+        margin: 1rem 0;
+      }
+
+      nav .hamburger {
+        display: flex;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Aline Cunico</div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="https://github.com/aduarte2015/chess-ai" target="_blank">GitHub</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header Section -->
+  <header id="home">
+    <h1>Chess AI Project</h1>
+    <p>Building a smarter way to play chess with AI-powered move analysis, real-time strategies, and game recommendations.</p>
+    <a href="#projects" class="cta">Learn More</a>
+  </header>
+
+  <!-- Content Section -->
+  <div class="content">
+    <!-- Overview Section -->
+    <section id="projects">
+      <div class="section-title">Project Overview</div>
+      <div class="project-overview">
+        <img src="https://plus.unsplash.com/premium_photo-1670183859029-99a0a2c1912b?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Chess AI">
+        <div class="project-details">
+          <p>This Chess AI project aims to help players enhance their chess skills. It includes real-time move recommendations, statistical analysis of game states, and a user-friendly interface. Powered by cutting-edge machine learning and integrated into a web app using Streamlit, it makes chess strategy accessible to all.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="section-title">Key Features</div>
+      <ul>
+        <li>Real-time move recommendations</li>
+        <li>Custom scoring system for move evaluation</li>
+        <li>Interactive chessboard for gameplay</li>
+        <li>Streamlit integration for web app accessibility</li>
+      </ul>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="technologies" id="technologies">
+      <div class="section-title">Technologies Used</div>
+      <ul>
+        <li>Python</li>
+        <li>TensorFlow</li>
+        <li>Streamlit</li>
+        <li>Scikit-learn</li>
+        <li>GitHub</li>
+      </ul>
+    </section>
+
+    <!-- Call to Action Section -->
+    <div class="cta-container">
+      <a href="https://github.com/aduarte2015/chess-ai" class="cta">Check the GitHub Repository</a>
+    </div>
+  </div>
+
+  <script>
+    // Toggle the mobile menu
+    function toggleMenu() {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>

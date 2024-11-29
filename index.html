@@ -16,13 +16,21 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       color: #333;
       line-height: 1.6;
-      background-color: #f9f9f9;
+      background-color: #ffffff;
       margin: 0;
     }
 
     a {
       text-decoration: none;
       color: inherit;
+    }
+
+    /* Subtle gradient background that fades into white */
+    .gradient-background {
+      background: linear-gradient(180deg, rgba(0, 120, 231, 0.8) 0%, rgba(255, 255, 255, 1) 100%);
+      height: 50px;
+      width: 100%;
+      position: relative;
     }
 
     /* Gradient Text */
@@ -33,42 +41,131 @@
       font-weight: 700;
     }
 
-    /* Header */
-    header {
-      background-color: #fff;
-      padding: 3rem 1rem;
+    /* Animated Text Section */
+    .animated-text-section {
       text-align: center;
-      border-bottom: 1px solid #e5e5e5;
+      margin-top: 2rem;
+      padding: 2rem;
+      background-color: rgb(232, 248, 255);
+    }
+
+    .animated-text {
+      font-size: 2rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, #0078e7, #00c6ff, #ff0080, #ffea00);
+      background-size: 400% 400%;
+      color: transparent;
+      -webkit-background-clip: text;
+      animation: gradient-animation 4s ease infinite;
+    }
+
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Header Section */
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background-color: transparent;
     }
 
     header h1 {
       font-size: 3rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+      font-weight: bold;
     }
 
     header p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    /* Explore My Work Button */
+    .cta {
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #0078e7, #00c6ff, #ff0080, #ffea00);
+      color: white;
+      text-align: center;
+      transition: background 0.3s ease, transform 0.3s ease;
+      text-decoration: none; /* remove underline */
+      margin-top: 1.5rem;
+    }
+
+    .cta:hover {
+      background: linear-gradient(90deg, #ffea00, #ff0080, #00c6ff, #0078e7);
+      transform: translateY(-5px);
+    }
+
+    .cta:focus {
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 120, 231, 0.6);
+    }
+
+    /* About Me Section */
+    .about-me {
+      text-align: center;
+      padding: 2rem;
+      background-color: rgb(232, 248, 255);
       font-size: 1.25rem;
-      margin-bottom: 2rem;
       color: #555;
     }
 
-    header .cta {
-      padding: 0.75rem 1.5rem;
-      background-color: #0078e7;
-      color: white;
-      font-size: 1rem;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
+    /* Code Window Section */
+    .code-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 50px 0;
+      text-align: left;
+      background-color: rgb(232, 248, 255);
+      padding-bottom: 3%;
     }
 
-    header .cta:hover {
-      background-color: #005bb5;
+    .code-window {
+      background-color: #2e3b4e;
+      color: #f5f5f5;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 20px;
+      width: 80%;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+      white-space: pre-wrap; /* Preserve spaces and line breaks */
+      text-align: left; /* Left align the text like in a code editor */
+      overflow: hidden;
     }
+
+    .description {
+      font-size: 1.1rem;
+      color: #777;
+    }
+
+    /* Key Code Colors */
+    .keyword { color: #0078e7; } /* Blue for keywords */
+    .variable { color: #00c6ff; } /* Light blue for variables */
+    .function { color: #6dff6d; } /* Green for function calls */
+    .string { color: #f7a800; } /* Orange for strings */
+    .comment { color: #a0a0a0; } /* Gray for comments */
 
     /* Skills Section */
     .skills-section {
-      background-color: #f9f9f9;
+      background-color: #ffffff;
       padding: 3rem 1rem;
       text-align: center;
     }
@@ -76,6 +173,7 @@
     .skills-section h2 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
+      
     }
 
     .skills-grid {
@@ -99,7 +197,7 @@
     .projects-section {
       padding: 3rem 1rem;
       text-align: center;
-      background-color: #fff;
+      background-color: rgb(232, 248, 255);
     }
 
     .projects-section h2 {
@@ -171,34 +269,51 @@
 </head>
 <body>
 
-    <header>
-        <h1><span class="gradient-text">Aline Cunico</span></h1>
-        <p>Blending <span class="gradient-text">Creativity</span> and <span class="gradient-text">AI</span> to Craft Innovative Solutions</p>
-        <a href="#projects" class="cta">Explore My Work</a>
-      </header>
-      
+  <!-- Subtle Gradient Background -->
+  <div class="gradient-background"></div>
+
+  <!-- Header Section -->
+  <header>
+    <h1><span class="gradient-text">Aline Cunico</span></h1>
+    <p>Web Developer | AI Enthusiast | Digital Artist</p>
+    <a href="#projects" class="cta">Explore My Work</a>
+  </header>
+
+ 
+
+  <!-- Code Window Section (Fun Code) -->
+  <section class="code-section">
+     <!-- Animated Text Section -->
+  <section class="animated-text-section">
+    <p class="animated-text">Creating the Future, One Pixel at a Time</p>
+  </section>
+
+    <div class="code-window">
+      <span class="comment">// About Me Code Window</span><br>
+      <span class="variable">const</span> <span class="keyword">name</span> = <span class="string">'Aline Cunico'</span>;<br>
+      <span class="variable">const</span> <span class="keyword">skills</span> = ['Web Development', 'AI', 'Digital Art'];<br>
+      <span class="variable">const</span> <span class="keyword">message</span> = <span class="string">"Creating the Future, One Pixel at a Time"</span>;<br>
+      <span class="function">console.log</span>(<span class="string">'Hello, I am ' + name + '!' </span> + <span class="string">" I specialize in " + skills.join(', ') + ".</span>);<br>
+    </div>
+    <p class="description">This is a little glimpse of my journey in code!</p>
+  </section>
 
   <!-- Skills Section -->
-  <section class="skills-section">
-    <h2>Key <span class="gradient-text">Skills</span></h2>
+  <section class="skills-section" id="skills">
+    <h2>My <span class="gradient-text">Skills</span></h2>
     <div class="skills-grid">
-      <span class="skill">Machine Learning</span>
-      <span class="skill">Deep Learning</span>
-      <span class="skill">Data Visualization</span>
-      <span class="skill">Natural Language Processing</span>
-      <span class="skill">Python</span>
-      <span class="skill">TensorFlow</span>
-      <span class="skill">Computer Vision</span>
-      <span class="skill">Blender</span>
-      <span class="skill">Streamlit</span>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">Python</div>
+      <div class="skill">AI/ML</div>
+      <div class="skill">3D Design</div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="projects-section">
+  <section class="projects-section" id="projects">
     <h2>Featured <span class="gradient-text">Projects</span></h2>
     <div class="projects-grid">
-      <!-- Project 1 -->
       <div class="project-card">
         <img src="https://plus.unsplash.com/premium_photo-1670183859029-99a0a2c1912b?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Chess AI Project">
         <h3><span class="gradient-text">Chess AI</span></h3>
@@ -209,7 +324,6 @@
           <span class="project-skill">AI</span>
         </div>
       </div>
-      <!-- Project 2 -->
       <div class="project-card">
         <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="AI Slideshow Creator">
         <h3><span class="gradient-text">AI Slideshow Creator</span></h3>
@@ -220,7 +334,6 @@
           <span class="project-skill">Video Editing</span>
         </div>
       </div>
-      <!-- Project 3 -->
       <div class="project-card">
         <img src="https://images.unsplash.com/photo-1732613942657-61684c51eb55?q=80&w=1668&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Creative AI">
         <h3><span class="gradient-text">Creative AI</span></h3>
@@ -236,8 +349,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2024 Aline Cunico | <a href="mailto:Alinedcunico@gmail.com">Email Me</a></p>
-    <p><a href="https://github.com/aduarte2015">GitHub</a> | <a href="https://www.linkedin.com/">LinkedIn</a></p>
+    <p>&copy; 2024 Aline Cunico. All rights reserved. <a href="mailto:alinedcunico@gmail.com">Contact</a></p>
   </footer>
 
 </body>

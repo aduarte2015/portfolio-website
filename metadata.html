@@ -1,0 +1,265 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Metadata Extraction Project</title>
+
+  <!-- Add Prism.js CSS for syntax highlighting -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css" rel="stylesheet" />
+
+  <style>
+    /* General styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    /* Navbar styles */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      color: #333;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, #0078e7, #00c6ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* Nav Links */
+    nav .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    nav .nav-links li {
+      margin: 0 1.5rem;
+    }
+
+    nav .nav-links a {
+      color: black;  /* Default black text */
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    /* Non-mobile hover effect */
+    @media (min-width: 768px) {
+      nav .nav-links a:hover {
+        color: white;
+        background: linear-gradient(90deg, #0078e7, #00c6ff);  /* Gradient background */
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(90deg, #0078e7, #00c6ff);
+      color: white;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+    }
+
+    header .cta {
+      padding: 0.75rem 1.5rem;
+      background: white;
+      color: #0078e7;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    header .cta:hover {
+      background: #f0f0f0;
+      transform: scale(1.05);
+    }
+
+    /* Content */
+    .content {
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .features, .technologies {
+      margin-bottom: 2rem;
+    }
+
+    .features ul, .technologies ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .features ul li, .technologies ul li {
+      margin-bottom: 0.5rem;
+      background: #e8f3ff;
+      color: #0078e7;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* Code Block Styling */
+    pre {
+      background-color: #2e3b4e;
+      color: #f5f5f5;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    /* Call to Action Section */
+    .cta-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .cta-container .cta {
+      background: linear-gradient(90deg, #0078e7, #00c6ff);
+      color: white;
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .cta-container .cta:hover {
+      background: #00c6ff;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Aline Cunico</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="https://github.com/aduarte2015/video-metadata-extraction" target="_blank">GitHub</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header Section -->
+  <header id="home">
+    <h1>Video Metadata Extraction Project</h1>
+    <p>Extract meaningful metadata from videos using speech-to-text and NLP techniques for easy categorization and search.</p>
+    <a href="#projects" class="cta">Learn More</a>
+  </header>
+
+  <!-- Content Section -->
+  <div class="content">
+    <!-- Overview Section -->
+    <section id="projects">
+      <div class="section-title">Project Overview</div>
+      <!-- Image 2 (Unsplash Image) -->
+      <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=1900&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Video Production" style="width: 100%; max-width: 1200px; margin: 20px auto; display: block;">
+      <p>This project was developed to streamline the video production team's workflow by creating an efficient tool for extracting valuable metadata from video content. The primary goal was to build a system that automatically generates keywords, transcriptions, and other metadata from videos, allowing the team to easily categorize, search, and retrieve specific projects from a growing video library.
+
+        The tool utilizes advanced technologies such as speech-to-text and Named Entity Recognition (NER). The speech-to-text component transcribes audio content, enabling an accurate textual representation of what is spoken in the video. NER is then applied to identify and extract key entities (e.g., names, locations, dates, and other important terms) from the transcription. These keywords and transcriptions are stored as metadata, which can be associated with each video in the library.
+        
+        By implementing this tool, we significantly improve the ease with which video content can be searched and accessed. Team members can now perform quick searches based on keywords, project names, or specific topics, greatly enhancing efficiency in locating relevant content and streamlining the video production process.</p>
+
+      <!-- Image 1 (Local Image) -->
+      <img src="img/metadata.png" alt="Video Metadata Extraction" style="width: 100%; max-width: 1200px; margin: 20px auto; display: block;">
+
+      
+    </section>
+       <!-- Key Features Section -->
+       <section class="features" id="features">
+        <div class="section-title">Key Features</div>
+        <ul>
+          <li>Audio extraction from videos</li>
+          <li>Real-time transcription using <b>Wav2Vec2</b></li>
+          <li>Keyword extraction using <b>BERT</b> for Named Entity Recognition</li>
+          <li>Metadata storage in a CSV file for easy search and retrieval</li>
+          <li>Easy-to-use search interface</li>
+        </ul>
+      </section>
+
+    <!-- Code Section -->
+    <section id="code">
+      <div class="section-title">Sample Code</div>
+      <pre><code class="language-python">
+# Import required libraries
+import moviepy.editor as mp
+from transformers import pipeline
+
+# Load pre-trained model for speech-to-text
+transcription_pipeline = pipeline("automatic-speech-recognition", model="facebook/wav2vec2-large-960h")
+
+# Load video and extract audio
+video = mp.VideoFileClip("video.mp4")
+audio = video.audio
+
+# Extract transcription from audio
+audio_path = "audio.wav"
+audio.write_audiofile(audio_path)
+transcription = transcription_pipeline(audio_path)
+
+print("Transcription: ", transcription["text"])
+      </code></pre>
+    </section>
+
+ 
+
+    <!-- Call to Action Section -->
+    <div class="cta-container">
+      <a href="https://github.com/aduarte2015/video-metadata-extraction" class="cta">Check the GitHub Repository</a>
+    </div>
+  </div>
+
+  <!-- Add Prism.js JS for syntax highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+
+</body>
+</html>
